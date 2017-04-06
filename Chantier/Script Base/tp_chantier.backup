@@ -1,0 +1,155 @@
+--
+-- PostgreSQL database dump
+--
+
+-- Dumped from database version 9.5.4
+-- Dumped by pg_dump version 9.5.4
+
+-- Started on 2016-09-16 11:43:15
+
+SET statement_timeout = 0;
+SET lock_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+SET row_security = off;
+
+--
+-- TOC entry 1 (class 3079 OID 12355)
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- TOC entry 2112 (class 0 OID 0)
+-- Dependencies: 1
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- TOC entry 182 (class 1259 OID 16402)
+-- Name: chantier; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE chantier (
+    id_chantier integer NOT NULL,
+    nom character varying(255),
+    date_debut date,
+    montant numeric(10,2),
+    id_client integer
+);
+
+
+ALTER TABLE chantier OWNER TO postgres;
+
+--
+-- TOC entry 2113 (class 0 OID 0)
+-- Dependencies: 182
+-- Name: COLUMN chantier.date_debut; Type: COMMENT; Schema: public; Owner: postgres
+--
+
+COMMENT ON COLUMN chantier.date_debut IS '
+';
+
+
+--
+-- TOC entry 181 (class 1259 OID 16394)
+-- Name: client; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE client (
+    id_client integer NOT NULL,
+    raison_sociale_client character varying(255),
+    telephone character varying(20),
+    mail character varying(255)
+);
+
+
+ALTER TABLE client OWNER TO postgres;
+
+--
+-- TOC entry 2104 (class 0 OID 16402)
+-- Dependencies: 182
+-- Data for Name: chantier; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY chantier (id_chantier, nom, date_debut, montant, id_client) FROM stdin;
+1	Rénovationn Loxam	2016-07-20	6300.25	3
+6	Salle de bain	2016-10-07	2500.01	3
+5	Locaux METRO	2016-12-23	11700.58	4
+2	Salle infomartique SERAM	2015-12-29	530.48	2
+\.
+
+
+--
+-- TOC entry 2103 (class 0 OID 16394)
+-- Dependencies: 181
+-- Data for Name: client; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY client (id_client, raison_sociale_client, telephone, mail) FROM stdin;
+1	LOXAM	0645857498	loxam@lox.com
+3	CFAI	0477256595	cfai@cite.com
+4	METRO	0425986587	metro@metrofrance.fr
+2	SERAM	0477350035	seramfr@seram.com
+7	Carrefour	04 77 25 77 78	carrouf@carrefour.io
+\.
+
+
+--
+-- TOC entry 1987 (class 2606 OID 16406)
+-- Name: pk_id_chantier; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY chantier
+    ADD CONSTRAINT pk_id_chantier PRIMARY KEY (id_chantier);
+
+
+--
+-- TOC entry 1985 (class 2606 OID 16401)
+-- Name: pk_id_client; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY client
+    ADD CONSTRAINT pk_id_client PRIMARY KEY (id_client);
+
+
+--
+-- TOC entry 1988 (class 2606 OID 16407)
+-- Name: fk_id_client; Type: FK CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY chantier
+    ADD CONSTRAINT fk_id_client FOREIGN KEY (id_client) REFERENCES client(id_client);
+
+
+--
+-- TOC entry 2111 (class 0 OID 0)
+-- Dependencies: 6
+-- Name: public; Type: ACL; Schema: -; Owner: postgres
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM postgres;
+GRANT ALL ON SCHEMA public TO postgres;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+-- Completed on 2016-09-16 11:43:15
+
+--
+-- PostgreSQL database dump complete
+--
+

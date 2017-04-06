@@ -1,0 +1,9 @@
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\bin\Debug\dll_Commandes.dll
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\bin\Debug\dll_Commandes.pdb
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\bin\Debug\log4net.dll
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\bin\Debug\Npgsql.dll
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\bin\Debug\log4net.xml
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\bin\Debug\Npgsql.xml
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\obj\Debug\dll_Commandes.dll
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\obj\Debug\dll_Commandes.pdb
+C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\dll_Commandes\obj\Debug\dll_Commandes.csprojResolveAssemblyReference.cache

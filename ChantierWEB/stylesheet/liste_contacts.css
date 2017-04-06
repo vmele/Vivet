@@ -1,0 +1,135 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+
+.rwd-table {
+	margin: 1em 0;
+	min-width: 300px;
+}
+
+.rwd-table tr {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+
+.rwd-table th {
+	display: none;
+}
+
+.rwd-table td {
+	display: block;
+}
+
+.rwd-table td:first-child {
+	padding-top: .5em;
+}
+
+.rwd-table td:last-child {
+	padding-bottom: .5em;
+}
+
+.rwd-table td:before {
+	content: attr(data-th) ": ";
+	font-weight: bold;
+	width: 6.5em;
+	display: inline-block;
+}
+
+@media ( min-width : 480px) {
+	.rwd-table td:before {
+		display: none;
+	}
+}
+
+.rwd-table th, .rwd-table td {
+	text-align: left;
+}
+
+@media ( min-width : 480px) {
+	.rwd-table th, .rwd-table td {
+		display: table-cell;
+		padding: .25em .5em;
+	}
+	.rwd-table th:first-child, .rwd-table td:first-child {
+		padding-left: 0;
+	}
+	.rwd-table th:last-child, .rwd-table td:last-child {
+		padding-right: 0;
+	}
+}
+
+body {
+	padding: 0 2em;
+	font-family: "Roboto", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	text-rendering: optimizeLegibility;
+	color: #444;
+	background: #eee;
+}
+
+h1 {
+	font-weight: normal;
+	letter-spacing: -1px;
+	color: #46637f;
+}
+
+.rwd-table {
+	background: #76b852;
+	color: #fff;
+	border-radius: .4em;
+	overflow: hidden;
+}
+
+.rwd-table tr {
+	border-color: #46637f;
+}
+
+.rwd-table th, .rwd-table td {
+	margin: .5em 1em;
+}
+
+@media ( min-width : 480px) {
+	.rwd-table th, .rwd-table td {
+		padding: 1em !important;
+	}
+}
+
+/* Couleur du th Nom, Prenom, Mail, etc */
+.rwd-table th, .rwd-table td:before {
+	color: #46637f;
+}
+
+ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+li {
+	float: left;
+	border-right: 1px solid #bbb;
+}
+
+li:last-child {
+	border-right: none;
+}
+
+li a {
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+}
+
+li a:hover:not (.active ) {
+	background-color: #111;
+}
+
+.active {
+	background-color: #4CAF50;
+}
+
+a:hover {
+    background-color: #4CAF50;
+}

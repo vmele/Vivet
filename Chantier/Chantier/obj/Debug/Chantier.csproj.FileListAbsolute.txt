@@ -1,0 +1,31 @@
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.frm_DetailChantier.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.frm_EditChantier.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.frm_EditClient.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.frm_ListeChantier.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.Properties.Resources.resources
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.csproj.GenerateResource.Cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\bin\Debug\Chantier.exe.config
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\bin\Debug\Chantier.exe
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\bin\Debug\Chantier.pdb
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\bin\Debug\Npgsql.dll
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\bin\Debug\Npgsql.xml
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.exe
+C:\Users\User\Documents\Visual Studio 2015\Projects\Chantier\Chantier\obj\Debug\Chantier.pdb
+C:\Users\User\Documents\GitHub\PROJETS_MELE\Chantier\Chantier\bin\Debug\Chantier.exe.config
+C:\Users\User\Documents\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.exe
+C:\Users\User\Documents\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.pdb
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\bin\Debug\Chantier.exe.config
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\bin\Debug\Chantier.exe
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\bin\Debug\Chantier.pdb
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\bin\Debug\Npgsql.dll
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\bin\Debug\Npgsql.xml
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.csprojResolveAssemblyReference.cache
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.frm_DetailChantier.resources
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.frm_EditChantier.resources
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.frm_EditClient.resources
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.frm_ListeChantier.resources
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.Properties.Resources.resources
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.csproj.GenerateResource.Cache
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.exe
+C:\GitHub\PROJETS_MELE\Chantier\Chantier\obj\Debug\Chantier.pdb
