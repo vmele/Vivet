@@ -10,15 +10,13 @@
 CREATE TABLE public.commande(
 	id_commande        INT  NOT NULL ,
 	reference_commande VARCHAR (15)  ,
-	date_commande      DATE   ,
-	date_demandee      DATE   ,
-	frais_de_port      BOOL   ,
+	date_commande      DATE   	 ,
+	date_demandee      DATE   	 ,
 	id_type            INT  NOT NULL ,
 	id_contact         INT  NOT NULL ,
-	id_facture         INT  NOT NULL ,
-	id_shipment        INT  NOT NULL ,
-	id_personne        INT  NOT NULL ,
 	id_etat            INT  NOT NULL ,
+	id_client          INT  NOT NULL ,
+	id_personne        INT  NOT NULL ,
 	CONSTRAINT prk_constraint_commande PRIMARY KEY (id_commande)
 )WITHOUT OIDS;
 
@@ -66,41 +64,28 @@ CREATE TABLE public.tva(
 
 
 ------------------------------------------------------------
--- Table: ligne_de_ commande
+-- Table: ligne_de_commande
 ------------------------------------------------------------
-CREATE TABLE public.ligne_de__commande(
+CREATE TABLE public.ligne_de_commande(
 	id_sol       INT  NOT NULL ,
 	numero_ligne INT   ,
 	quantite     INT   ,
-	montant      NUMERIC (10,2)   ,
-	id_commande  INT  NOT NULL ,
 	id_tva       INT  NOT NULL ,
 	id_produit   INT  NOT NULL ,
 	id_etat      INT  NOT NULL ,
-	CONSTRAINT prk_constraint_ligne_de__commande PRIMARY KEY (id_sol,id_commande)
+	id_commande  INT  NOT NULL ,
+	CONSTRAINT prk_constraint_ligne_de_commande PRIMARY KEY (id_sol,id_commande)
 )WITHOUT OIDS;
 
 
 ------------------------------------------------------------
--- Table: shipment
+-- Table: client
 ------------------------------------------------------------
-CREATE TABLE public.shipment(
-	id_shipment        INT  NOT NULL ,
-	reference_shipment VARCHAR (25)  ,
-	date_envoi         DATE   ,
-	id_commande        INT  NOT NULL ,
-	CONSTRAINT prk_constraint_shipment PRIMARY KEY (id_shipment)
-)WITHOUT OIDS;
-
-
-------------------------------------------------------------
--- Table: facture
-------------------------------------------------------------
-CREATE TABLE public.facture(
-	id_facture  INT  NOT NULL ,
-	reference   VARCHAR (25)  ,
-	id_commande INT  NOT NULL ,
-	CONSTRAINT prk_constraint_facture PRIMARY KEY (id_facture)
+CREATE TABLE public.client(
+	id_client      INT  NOT NULL ,
+	raison_sociale VARCHAR (25)  ,
+	id_commande    INT  NOT NULL ,
+	CONSTRAINT prk_constraint_client PRIMARY KEY (id_client)
 )WITHOUT OIDS;
 
 
@@ -111,6 +96,7 @@ CREATE TABLE public.produit(
 	id_produit      INT  NOT NULL ,
 	conditionnement INT2   ,
 	prix_cdt        NUMERIC (6,2)   ,
+	libelle         VARCHAR (25)  ,
 	CONSTRAINT prk_constraint_produit PRIMARY KEY (id_produit)
 )WITHOUT OIDS;
 
@@ -171,16 +157,14 @@ CREATE TABLE public.etat_sol(
 
 ALTER TABLE public.commande ADD CONSTRAINT FK_commande_id_type FOREIGN KEY (id_type) REFERENCES public.type_commande(id_type);
 ALTER TABLE public.commande ADD CONSTRAINT FK_commande_id_contact FOREIGN KEY (id_contact) REFERENCES public.moyen_contact_commande(id_contact);
-ALTER TABLE public.commande ADD CONSTRAINT FK_commande_id_facture FOREIGN KEY (id_facture) REFERENCES public.facture(id_facture);
-ALTER TABLE public.commande ADD CONSTRAINT FK_commande_id_shipment FOREIGN KEY (id_shipment) REFERENCES public.shipment(id_shipment);
+ALTER TABLE public.commande ADD CONSTRAINT FK_commande_id_client FOREIGN KEY (id_client) REFERENCES public.client(id_client);
 ALTER TABLE public.commande ADD CONSTRAINT FK_commande_id_personne FOREIGN KEY (id_personne) REFERENCES public.personne(id_personne);
 ALTER TABLE public.commande ADD CONSTRAINT FK_commande_id_etat FOREIGN KEY (id_etat) REFERENCES public.etat_so(id_etat);
-ALTER TABLE public.ligne_de__commande ADD CONSTRAINT FK_ligne_de__commande_id_commande FOREIGN KEY (id_commande) REFERENCES public.commande(id_commande);
-ALTER TABLE public.ligne_de__commande ADD CONSTRAINT FK_ligne_de__commande_id_tva FOREIGN KEY (id_tva) REFERENCES public.tva(id_tva);
-ALTER TABLE public.ligne_de__commande ADD CONSTRAINT FK_ligne_de__commande_id_produit FOREIGN KEY (id_produit) REFERENCES public.produit(id_produit);
-ALTER TABLE public.ligne_de__commande ADD CONSTRAINT FK_ligne_de__commande_id_etat FOREIGN KEY (id_etat) REFERENCES public.etat_sol(id_etat);
-ALTER TABLE public.shipment ADD CONSTRAINT FK_shipment_id_commande FOREIGN KEY (id_commande) REFERENCES public.commande(id_commande);
-ALTER TABLE public.facture ADD CONSTRAINT FK_facture_id_commande FOREIGN KEY (id_commande) REFERENCES public.commande(id_commande);
+ALTER TABLE public.ligne_de_commande ADD CONSTRAINT FK_ligne_de_commande_id_commande FOREIGN KEY (id_commande) REFERENCES public.commande(id_commande);
+ALTER TABLE public.ligne_de_commande ADD CONSTRAINT FK_ligne_de_commande_id_tva FOREIGN KEY (id_tva) REFERENCES public.tva(id_tva);
+ALTER TABLE public.ligne_de_commande ADD CONSTRAINT FK_ligne_de_commande_id_produit FOREIGN KEY (id_produit) REFERENCES public.produit(id_produit);
+ALTER TABLE public.ligne_de_commande ADD CONSTRAINT FK_ligne_de_commande_id_etat FOREIGN KEY (id_etat) REFERENCES public.etat_sol(id_etat);
+ALTER TABLE public.client ADD CONSTRAINT FK_client_id_commande FOREIGN KEY (id_commande) REFERENCES public.commande(id_commande);
 ALTER TABLE public.utilisateur ADD CONSTRAINT FK_utilisateur_id_personne FOREIGN KEY (id_personne) REFERENCES public.personne(id_personne);
 ALTER TABLE public.utilisateur ADD CONSTRAINT FK_utilisateur_id_droit FOREIGN KEY (id_droit) REFERENCES public.droits(id_droit);
 ALTER TABLE public.employe ADD CONSTRAINT FK_employe_id_personne FOREIGN KEY (id_personne) REFERENCES public.personne(id_personne);

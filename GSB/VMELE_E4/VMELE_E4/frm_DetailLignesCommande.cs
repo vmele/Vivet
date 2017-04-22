@@ -151,6 +151,7 @@ namespace VMELE_E4
             tbx_noSol.ReadOnly = true;
             tbx_conditionnement.ReadOnly = true;
             tbx_prixConditionne.ReadOnly = true;
+            btn_valider.Enabled = false;
 
             pgb_statut.Value = 1;
             lbl_statut.Text = "Devis";
@@ -180,7 +181,7 @@ namespace VMELE_E4
                     if (cbx_tva.SelectedItem != null && cbx_tva.Text != "")
                     {
                         double qte = Convert.ToDouble(tbx_quantite.Text);
-                        double prixCdt = Convert.ToDouble(tbx_prixConditionne.Text.Replace("€",""));
+                        double prixCdt = Convert.ToDouble(tbx_prixConditionne.Text.Replace("€", ""));
 
                         l_Total = qte * prixCdt *
                             (1 + (l_Tva.TauxTva / 100));
@@ -238,7 +239,6 @@ namespace VMELE_E4
             }
             else
             {
-                // TODO : Voir pourquoi les cbx et tbx ne prennent pas la nouvelle valeur.
                 cls_LigneCommande l_Ligne = Program.Modele.ListeLignesCommandes[c_IDLigneCommande];
 
                 cls_Produit l_Produit = (cls_Produit)cbx_Produit.SelectedItem;
@@ -253,8 +253,8 @@ namespace VMELE_E4
             }
 
             Close();
-        
-    }
+
+        }
 
         private void cbx_SolRefCde_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -264,10 +264,56 @@ namespace VMELE_E4
             {
                 if (l_Ligne.NumeroLigne > l_Num)
                 {
-                    l_Num = l_Ligne.NumeroLigne + 1;
+                    l_Num = l_Ligne.NumeroLigne;
                 }
             }
+            l_Num++;
             tbx_noSol.Text = l_Num.ToString();
+        }
+
+        private void btn_valider_Click(object sender, EventArgs e)
+        {
+            cls_LigneCommande l_Ligne = Program.Modele.ListeLignesCommandes[c_IDLigneCommande];
+
+            // Si la ligne n'est pas cloturée
+            if (pgb_statut.Value < 4)
+            {
+                cls_EtatSol l_NouvelEtatligne = Program.Modele.ListeEtatSol[pgb_statut.Value + 1];
+
+                Program.Controlleur.validerLigneCommande(l_Ligne, l_NouvelEtatligne);
+                l_Ligne.Etat = l_NouvelEtatligne;
+
+                bool l_BoolEtat = true;
+                // ALors on parcourt chaque lignes de la commande associée
+                // Et on test si chaque ligne a le même statut.
+                foreach (cls_LigneCommande l_ligneCommande in l_Ligne.Commande.ListeLignesCommande)
+                {
+                    if (l_ligneCommande.Etat != l_Ligne.Etat)
+                    {
+                        l_BoolEtat = false;
+                    }
+
+                }
+                // Si elles ont toutes le même statut : on valide la ligne de commande.
+                if (l_BoolEtat == true)
+                {
+                    // Si la cde n'est pas cloturée, on fait ETAT + 1
+                    if (l_Ligne.Commande.Etat.getID() < 4)
+                    {
+                        cls_EtatSo l_NouvelEtatCommande = Program.Modele.ListeEtatSo[l_Ligne.Commande.Etat.getID() + 1];
+
+                        l_Ligne.Commande.Etat = l_NouvelEtatCommande;
+                        Program.Controlleur.ValiderCommande(l_Ligne.Commande, l_NouvelEtatCommande);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("La ligne de commande est déja cloturée.",
+                    "Action impossible",
+                    MessageBoxButtons.OK,
+                    MessageBoxIcon.Information);
+            }
         }
     }
 }

@@ -16,3 +16,21 @@ C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.csproj.GenerateR
 C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.exe
 C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.pdb
 C:\GitHub\PROJETS_MELE\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\VMELE_E4.exe.config
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\VMELE_E4.exe
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\VMELE_E4.pdb
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\Npgsql.dll
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\System.Threading.Tasks.Extensions.dll
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\Npgsql.xml
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\System.Threading.Tasks.Extensions.xml
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.csproj.ResolveComReference.cache
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.frm_Connexion.resources
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.frm_DetailCommande.resources
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.frm_DetailLignesCommande.resources
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.frm_Listes.resources
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.MDIParent.resources
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.Properties.Resources.resources
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.csproj.GenerateResource.Cache
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.exe
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.pdb

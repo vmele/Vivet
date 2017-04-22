@@ -35,7 +35,6 @@ namespace VMELE_E4
         {
            Program.Modele.ListeLignesTamponCommandes = DAL_LigneCommande.
                 selectLignesCommandeConditions(pListeConditions);
-
         }
 
         public void ajoutCommande(cls_Commande pCommande)
@@ -48,6 +47,11 @@ namespace VMELE_E4
             DAL_Commande.ModifCommande(pCommande);
         }
 
+        public void ValiderCommande(cls_Commande pCommande, cls_EtatSo pEtat)
+        {
+            DAL_Commande.ValiderCommande(pCommande, pEtat);
+        }
+
         public void ajoutLigneCommande(cls_LigneCommande pLigne)
         {
             DAL_LigneCommande.InsertLigne(pLigne);
@@ -56,6 +60,11 @@ namespace VMELE_E4
         public void modifLigneCommande(cls_LigneCommande pLigne)
         {
             DAL_LigneCommande.ModifLigne(pLigne);
+        }
+
+        public void validerLigneCommande(cls_LigneCommande pLigne, cls_EtatSol pEtat)
+        {
+            DAL_LigneCommande.ValiderLigne(pLigne, pEtat);
         }
     }
 }

@@ -170,12 +170,17 @@ namespace VMELE_E4
             table.Columns.Add("Date commmande", typeof(DateTime));
             table.Columns.Add("Date voulue", typeof(DateTime));
             table.Columns.Add("Montant total", typeof(string));
+
             foreach (cls_Commande l_Commande in pDicoCommandes.Values)
             {
-                double l_MontantTotal = l_Commande.calculMontantTotal();
-                table.Rows.Add(l_Commande.getID(), l_Commande.RefCommande, l_Commande.Etat,
-                    l_Commande.Utilisateur, l_Commande.Client,
-                    l_Commande.DateCommande, l_Commande.DateVoulue, l_MontantTotal);
+                table.Rows.Add(l_Commande.getID(),
+                    l_Commande.RefCommande,
+                    l_Commande.Etat,
+                    l_Commande.Utilisateur,
+                    l_Commande.Client,
+                    l_Commande.DateCommande,
+                    l_Commande.DateVoulue,
+                    l_Commande.calculMontantTotal());
             }
             dgv_listeCommandes.DataSource = table;
             dgv_listeCommandes.Columns[0].Visible = false;
@@ -333,7 +338,7 @@ namespace VMELE_E4
             #endregion
 
             // -------
-            // Remplissage et autocomplétion de la cbx_EtatSol
+            // Remplissage et autocomplétion de la cbx_RefCommande
             #region 
             tbx_solRefCommande.AutoCompleteMode = AutoCompleteMode.SuggestAppend;
             tbx_solRefCommande.AutoCompleteSource = AutoCompleteSource.CustomSource;
@@ -341,7 +346,6 @@ namespace VMELE_E4
             foreach (cls_Commande l_Commande in Program.Modele.ListeCommandes.Values)
             {
                 l_ListeRefSol.Add(l_Commande.RefCommande);
-                cbx_solStatut.Items.Add(l_Commande);
             }
             tbx_solRefCommande.AutoCompleteCustomSource = l_ListeRefSol;
             #endregion
@@ -377,6 +381,7 @@ namespace VMELE_E4
                     l_LigneCommande.Produit.PrixConditionne + " €",
                     l_LigneCommande.calculTotal() + " €");
             }
+
             dgv_listeLignesCommande.DataSource = table;
             dgv_listeLignesCommande.Columns[0].Visible = false;
         }
@@ -402,7 +407,7 @@ namespace VMELE_E4
             // Quantité
             if (tbx_quantite.Text != "")
             {
-                l_Conditions.Add("quantite ilike '%" + tbx_quantite.Text + "%'");
+                l_Conditions.Add("quantite =" + tbx_quantite.Text);
             }
             // Produit
             if (cbx_Produits.SelectedItem != null || cbx_Produits.Text != "")
@@ -413,7 +418,7 @@ namespace VMELE_E4
             // Ref commande
             if (tbx_solRefCommande.Text != "")
             {
-                l_Conditions.Add("commande.reference_commande ilike '%" + 
+                l_Conditions.Add("commande.reference_commande::text ilike '%" + 
                     tbx_solRefCommande.Text + "%'");
             }
             // Etat SOL
@@ -429,22 +434,25 @@ namespace VMELE_E4
                 l_Conditions.Add("ligne_de_commande.id_tva = " + l_TVA.getID());
             }
 
-            // Select de la liste tampon.
-            try
+            if (l_Conditions.Count != 0)
             {
-                Program.Controlleur.selectLignesCommandeConditions(l_Conditions);
+                // Select de la liste tampon.
+                try
+                {
+                    Program.Controlleur.selectLignesCommandeConditions(l_Conditions);
 
+                }
+                catch (Exception)
+                {
+
+                    MessageBox.Show("La recherche n'a pas pu être effectuée. " +
+                        "Veuillez réésayer ou contacter le support utilisateur.",
+                        "Erreur de recherche.", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                // Remplissage de la DGV avec une liste tampon.
+                setupDgvListeLignesCommande(Program.Modele.ListeLignesTamponCommandes);
             }
-            catch (Exception)
-            {
-
-                MessageBox.Show("La recherche n'a pas pu être effectuée. " +
-                    "Veuillez réésayer ou contacter le support utilisateur.",
-                    "Erreur de recherche.", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-
-            // Remplissage de la DGV avec une liste tampon.
-            setupDgvListeLignesCommande(Program.Modele.ListeLignesTamponCommandes);
         }
         #endregion
 

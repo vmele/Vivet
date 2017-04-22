@@ -25,7 +25,7 @@ namespace VMELE_E4
                 // Retrieve all rows
                 cmd.CommandText = "SELECT id_commande, reference_commande, date_commande," +
                                     "date_demandee, id_type, id_contact, id_etat," +
-                                    "id_client, id_utilisateur FROM commande order by id_commande, reference_commande, date_commande, date_demandee, id_type, id_contact, id_etat, id_client, id_utilisateur; ";
+                                    "id_client, id_personne FROM commande order by id_commande, reference_commande, date_commande, date_demandee, id_type, id_contact, id_etat, id_client, id_personne; ";
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -68,13 +68,13 @@ namespace VMELE_E4
                 // Retrieve all rows
                 cmd.CommandText = "SELECT cde.id_commande, cde.reference_commande, date_commande," +
                                     "date_demandee, id_type, id_contact, cde.id_etat," +
-                                    "id_client, id_utilisateur, sum(quantite*prix_cdt*(1 + taux / 100.00)) " +
+                                    "id_client, id_personne, sum(quantite*prix_cdt*(1 + taux / 100.00)) " +
                                     "as total FROM commande as cde, ligne_de_commande as ligne, produit as p, " +
                                     "tva WHERE cde.id_commande = ligne.id_commande " +
                                     "and ligne.id_produit = p.id_produit " +
                                     "and ligne.id_tva = tva.id_tva " + l_ConditionsTexte +
-                                    " group by cde.id_commande, cde.reference_commande, date_commande, date_demandee, id_type, id_contact, cde.id_etat, id_client, id_utilisateur " +
-                                    " order by cde.id_commande, cde.reference_commande, date_commande, date_demandee, id_type, id_contact, cde.id_etat, id_client, id_utilisateur;";
+                                    " group by cde.id_commande, cde.reference_commande, date_commande, date_demandee, id_type, id_contact, cde.id_etat, id_client, id_personne " +
+                                    " order by cde.id_commande, cde.reference_commande, date_commande, date_demandee, id_type, id_contact, cde.id_etat, id_client, id_personne;";
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -109,7 +109,7 @@ namespace VMELE_E4
                 cmd.Connection = c_Cnn;
 
                 // Retrieve all rows
-                cmd.CommandText = "insert into commande (id_commande, reference_commande, date_commande, date_demandee, id_type, id_contact, id_etat, id_client, id_utilisateur)"
+                cmd.CommandText = "insert into commande (id_commande, reference_commande, date_commande, date_demandee, id_type, id_contact, id_etat, id_client, id_personne)"
                      + "values (" + pCommande.getID() + ",'" + pCommande.RefCommande + "', '" + pCommande.DateCommande + "', '" + pCommande.DateVoulue + "'" +
                      ", " + pCommande.TypeCommande.getID() + ", " + pCommande.MoyenContact.getID() + ", " + pCommande.Etat.getID() + ", " + pCommande.Client.getID() + ", " + pCommande.Utilisateur.getID() + ");";
                 int l_Nb = cmd.ExecuteNonQuery();
@@ -132,17 +132,30 @@ namespace VMELE_E4
 
             }
         }
+        public static void SupprCommande(cls_Commande pCommande)
+        {
+            using (NpgsqlCommand cmd = new NpgsqlCommand())
+            {
+                cmd.Connection = c_Cnn;
 
-        //public static void SupprClient(cls_Client pClient)
-        //{
-        //    using (NpgsqlCommand cmd = new NpgsqlCommand())
-        //    {
-        //        cmd.Connection = c_Cnn;
+                cmd.CommandText = "DELETE FROM commande WHERE id_commande=" + pCommande.getID();
+                int l_Nb = cmd.ExecuteNonQuery();
 
-        //        cmd.CommandText = "DELETE FROM client WHERE id_client=" + pClient.getID();
-        //        int l_Nb = cmd.ExecuteNonQuery();
+            }
+        }
 
-        //    }
-        //}
+        public static void ValiderCommande(cls_Commande pCommande, cls_EtatSo pEtat)
+        {
+            using (NpgsqlCommand cmd = new NpgsqlCommand())
+            {
+                cmd.Connection = c_Cnn;
+
+                // Retrieve all rows
+                cmd.CommandText = "update commande set id_etat =" + pEtat.getID()  + " WHERE id_commande = " + pCommande.getID();
+                int l_Nb = cmd.ExecuteNonQuery();
+
+            }
+        }
+
     }
 }

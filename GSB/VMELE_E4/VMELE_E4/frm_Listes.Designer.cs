@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tctrl_Listes = new System.Windows.Forms.TabControl();
@@ -66,17 +65,11 @@
             this.label12 = new System.Windows.Forms.Label();
             this.cbx_solStatut = new System.Windows.Forms.ComboBox();
             this.dgv_listeLignesCommande = new System.Windows.Forms.DataGridView();
-            this.raxonBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.raxon = new VMELE_E4.raxon();
-            this.raxonBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tctrl_Listes.SuspendLayout();
             this.tpg_listeCommandes.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listeCommandes)).BeginInit();
             this.tpg_listeLignesCommande.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listeLignesCommande)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raxonBindingSource1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raxon)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raxonBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tctrl_Listes
@@ -85,10 +78,10 @@
             this.tctrl_Listes.Controls.Add(this.tpg_listeLignesCommande);
             this.tctrl_Listes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tctrl_Listes.Location = new System.Drawing.Point(0, 0);
-            this.tctrl_Listes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tctrl_Listes.Margin = new System.Windows.Forms.Padding(2);
             this.tctrl_Listes.Name = "tctrl_Listes";
             this.tctrl_Listes.SelectedIndex = 0;
-            this.tctrl_Listes.Size = new System.Drawing.Size(944, 719);
+            this.tctrl_Listes.Size = new System.Drawing.Size(1069, 837);
             this.tctrl_Listes.TabIndex = 0;
             this.tctrl_Listes.SelectedIndexChanged += new System.EventHandler(this.tctrl_Listes_SelectedIndexChanged);
             // 
@@ -110,11 +103,11 @@
             this.tpg_listeCommandes.Controls.Add(this.dtp_DateCommande);
             this.tpg_listeCommandes.Controls.Add(this.cbx_soStatut);
             this.tpg_listeCommandes.Controls.Add(this.tbx_soRefCommande);
-            this.tpg_listeCommandes.Location = new System.Drawing.Point(4, 25);
-            this.tpg_listeCommandes.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpg_listeCommandes.Location = new System.Drawing.Point(4, 22);
+            this.tpg_listeCommandes.Margin = new System.Windows.Forms.Padding(2);
             this.tpg_listeCommandes.Name = "tpg_listeCommandes";
-            this.tpg_listeCommandes.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpg_listeCommandes.Size = new System.Drawing.Size(936, 690);
+            this.tpg_listeCommandes.Padding = new System.Windows.Forms.Padding(2);
+            this.tpg_listeCommandes.Size = new System.Drawing.Size(1061, 811);
             this.tpg_listeCommandes.TabIndex = 0;
             this.tpg_listeCommandes.Text = "Liste des commandes";
             this.tpg_listeCommandes.UseVisualStyleBackColor = true;
@@ -122,34 +115,32 @@
             // cbx_Client
             // 
             this.cbx_Client.FormattingEnabled = true;
-            this.cbx_Client.Location = new System.Drawing.Point(304, 44);
-            this.cbx_Client.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_Client.Location = new System.Drawing.Point(228, 36);
+            this.cbx_Client.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Client.Name = "cbx_Client";
-            this.cbx_Client.Size = new System.Drawing.Size(121, 24);
+            this.cbx_Client.Size = new System.Drawing.Size(92, 21);
             this.cbx_Client.TabIndex = 3;
             // 
             // dgv_listeCommandes
             // 
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dgv_listeCommandes.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgv_listeCommandes.AutoGenerateColumns = false;
             this.dgv_listeCommandes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_listeCommandes.DataMember = "ListeCommandes";
-            this.dgv_listeCommandes.DataSource = this.raxon;
-            this.dgv_listeCommandes.Location = new System.Drawing.Point(21, 138);
+            this.dgv_listeCommandes.Location = new System.Drawing.Point(16, 130);
+            this.dgv_listeCommandes.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_listeCommandes.Name = "dgv_listeCommandes";
             this.dgv_listeCommandes.ReadOnly = true;
             this.dgv_listeCommandes.RowTemplate.Height = 24;
-            this.dgv_listeCommandes.Size = new System.Drawing.Size(902, 488);
+            this.dgv_listeCommandes.Size = new System.Drawing.Size(774, 631);
             this.dgv_listeCommandes.TabIndex = 42;
             this.dgv_listeCommandes.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_listeCommandes_CellMouseDoubleClick);
             // 
             // btn_ajouterCommande
             // 
-            this.btn_ajouterCommande.Location = new System.Drawing.Point(783, 6);
-            this.btn_ajouterCommande.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_ajouterCommande.Location = new System.Drawing.Point(587, 5);
+            this.btn_ajouterCommande.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ajouterCommande.Name = "btn_ajouterCommande";
-            this.btn_ajouterCommande.Size = new System.Drawing.Size(141, 23);
+            this.btn_ajouterCommande.Size = new System.Drawing.Size(106, 19);
             this.btn_ajouterCommande.TabIndex = 9;
             this.btn_ajouterCommande.Text = "Créer commande";
             this.btn_ajouterCommande.UseVisualStyleBackColor = true;
@@ -157,10 +148,10 @@
             // 
             // btn_soRechercher
             // 
-            this.btn_soRechercher.Location = new System.Drawing.Point(195, 110);
-            this.btn_soRechercher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_soRechercher.Location = new System.Drawing.Point(146, 89);
+            this.btn_soRechercher.Margin = new System.Windows.Forms.Padding(2);
             this.btn_soRechercher.Name = "btn_soRechercher";
-            this.btn_soRechercher.Size = new System.Drawing.Size(141, 23);
+            this.btn_soRechercher.Size = new System.Drawing.Size(106, 19);
             this.btn_soRechercher.TabIndex = 8;
             this.btn_soRechercher.Text = "Rechercher";
             this.btn_soRechercher.UseVisualStyleBackColor = true;
@@ -168,10 +159,10 @@
             // 
             // btn_soVider
             // 
-            this.btn_soVider.Location = new System.Drawing.Point(21, 110);
-            this.btn_soVider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_soVider.Location = new System.Drawing.Point(16, 89);
+            this.btn_soVider.Margin = new System.Windows.Forms.Padding(2);
             this.btn_soVider.Name = "btn_soVider";
-            this.btn_soVider.Size = new System.Drawing.Size(136, 23);
+            this.btn_soVider.Size = new System.Drawing.Size(102, 19);
             this.btn_soVider.TabIndex = 7;
             this.btn_soVider.Text = "Vider les filtres";
             this.btn_soVider.UseVisualStyleBackColor = true;
@@ -180,100 +171,106 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(591, 90);
+            this.label6.Location = new System.Drawing.Point(443, 73);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(109, 17);
+            this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 13;
             this.label6.Text = "Date demandée";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(591, 28);
+            this.label5.Location = new System.Drawing.Point(443, 23);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(111, 17);
+            this.label5.Size = new System.Drawing.Size(85, 13);
             this.label5.TabIndex = 12;
             this.label5.Text = "Date commande";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(443, 26);
+            this.label4.Location = new System.Drawing.Point(332, 21);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(28, 17);
+            this.label4.Size = new System.Drawing.Size(22, 13);
             this.label4.TabIndex = 11;
             this.label4.Text = "GC";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(301, 26);
+            this.label3.Location = new System.Drawing.Point(226, 21);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 17);
+            this.label3.Size = new System.Drawing.Size(33, 13);
             this.label3.TabIndex = 10;
             this.label3.Text = "Client";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(147, 26);
+            this.label2.Location = new System.Drawing.Point(110, 21);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 17);
+            this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 9;
             this.label2.Text = "Statut";
             // 
             // dtp_DateVoulue
             // 
-            this.dtp_DateVoulue.Location = new System.Drawing.Point(595, 110);
-            this.dtp_DateVoulue.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtp_DateVoulue.Location = new System.Drawing.Point(446, 89);
+            this.dtp_DateVoulue.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_DateVoulue.Name = "dtp_DateVoulue";
-            this.dtp_DateVoulue.Size = new System.Drawing.Size(200, 22);
+            this.dtp_DateVoulue.Size = new System.Drawing.Size(151, 20);
             this.dtp_DateVoulue.TabIndex = 6;
             this.dtp_DateVoulue.ValueChanged += new System.EventHandler(this.dtp_DateVoulue_ValueChanged);
             // 
             // cbx_Utilisateur
             // 
             this.cbx_Utilisateur.FormattingEnabled = true;
-            this.cbx_Utilisateur.Location = new System.Drawing.Point(445, 46);
-            this.cbx_Utilisateur.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_Utilisateur.Location = new System.Drawing.Point(334, 37);
+            this.cbx_Utilisateur.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Utilisateur.Name = "cbx_Utilisateur";
-            this.cbx_Utilisateur.Size = new System.Drawing.Size(121, 24);
+            this.cbx_Utilisateur.Size = new System.Drawing.Size(92, 21);
             this.cbx_Utilisateur.TabIndex = 4;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 26);
+            this.label1.Location = new System.Drawing.Point(14, 21);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(107, 17);
+            this.label1.Size = new System.Drawing.Size(82, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Réf. commande";
             // 
             // dtp_DateCommande
             // 
-            this.dtp_DateCommande.Location = new System.Drawing.Point(595, 48);
-            this.dtp_DateCommande.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dtp_DateCommande.Location = new System.Drawing.Point(446, 39);
+            this.dtp_DateCommande.Margin = new System.Windows.Forms.Padding(2);
             this.dtp_DateCommande.Name = "dtp_DateCommande";
-            this.dtp_DateCommande.Size = new System.Drawing.Size(200, 22);
+            this.dtp_DateCommande.Size = new System.Drawing.Size(151, 20);
             this.dtp_DateCommande.TabIndex = 5;
             this.dtp_DateCommande.ValueChanged += new System.EventHandler(this.dtp_DateCommande_ValueChanged);
             // 
             // cbx_soStatut
             // 
             this.cbx_soStatut.FormattingEnabled = true;
-            this.cbx_soStatut.Location = new System.Drawing.Point(149, 46);
-            this.cbx_soStatut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_soStatut.Location = new System.Drawing.Point(112, 37);
+            this.cbx_soStatut.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_soStatut.Name = "cbx_soStatut";
-            this.cbx_soStatut.Size = new System.Drawing.Size(121, 24);
+            this.cbx_soStatut.Size = new System.Drawing.Size(92, 21);
             this.cbx_soStatut.TabIndex = 2;
             // 
             // tbx_soRefCommande
             // 
             this.tbx_soRefCommande.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.tbx_soRefCommande.Location = new System.Drawing.Point(21, 46);
-            this.tbx_soRefCommande.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbx_soRefCommande.Location = new System.Drawing.Point(16, 37);
+            this.tbx_soRefCommande.Margin = new System.Windows.Forms.Padding(2);
             this.tbx_soRefCommande.Name = "tbx_soRefCommande";
-            this.tbx_soRefCommande.Size = new System.Drawing.Size(100, 22);
+            this.tbx_soRefCommande.Size = new System.Drawing.Size(76, 20);
             this.tbx_soRefCommande.TabIndex = 1;
             // 
             // tpg_listeLignesCommande
@@ -294,56 +291,57 @@
             this.tpg_listeLignesCommande.Controls.Add(this.label12);
             this.tpg_listeLignesCommande.Controls.Add(this.cbx_solStatut);
             this.tpg_listeLignesCommande.Controls.Add(this.dgv_listeLignesCommande);
-            this.tpg_listeLignesCommande.Location = new System.Drawing.Point(4, 25);
-            this.tpg_listeLignesCommande.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tpg_listeLignesCommande.Location = new System.Drawing.Point(4, 22);
+            this.tpg_listeLignesCommande.Margin = new System.Windows.Forms.Padding(2);
             this.tpg_listeLignesCommande.Name = "tpg_listeLignesCommande";
-            this.tpg_listeLignesCommande.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.tpg_listeLignesCommande.Size = new System.Drawing.Size(936, 690);
+            this.tpg_listeLignesCommande.Padding = new System.Windows.Forms.Padding(2);
+            this.tpg_listeLignesCommande.Size = new System.Drawing.Size(1061, 811);
             this.tpg_listeLignesCommande.TabIndex = 1;
             this.tpg_listeLignesCommande.Text = "Liste des lignes de commande";
             this.tpg_listeLignesCommande.UseVisualStyleBackColor = true;
             // 
             // tbx_solRefCommande
             // 
-            this.tbx_solRefCommande.Location = new System.Drawing.Point(22, 34);
-            this.tbx_solRefCommande.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbx_solRefCommande.Location = new System.Drawing.Point(16, 28);
+            this.tbx_solRefCommande.Margin = new System.Windows.Forms.Padding(2);
             this.tbx_solRefCommande.Name = "tbx_solRefCommande";
-            this.tbx_solRefCommande.Size = new System.Drawing.Size(104, 22);
+            this.tbx_solRefCommande.Size = new System.Drawing.Size(79, 20);
             this.tbx_solRefCommande.TabIndex = 1;
             // 
             // cbx_Produits
             // 
             this.cbx_Produits.FormattingEnabled = true;
-            this.cbx_Produits.Location = new System.Drawing.Point(183, 89);
-            this.cbx_Produits.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_Produits.Location = new System.Drawing.Point(137, 72);
+            this.cbx_Produits.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_Produits.Name = "cbx_Produits";
-            this.cbx_Produits.Size = new System.Drawing.Size(320, 24);
+            this.cbx_Produits.Size = new System.Drawing.Size(241, 21);
             this.cbx_Produits.TabIndex = 5;
             // 
             // lbl_tva
             // 
             this.lbl_tva.AutoSize = true;
-            this.lbl_tva.Location = new System.Drawing.Point(531, 71);
+            this.lbl_tva.Location = new System.Drawing.Point(398, 58);
+            this.lbl_tva.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbl_tva.Name = "lbl_tva";
-            this.lbl_tva.Size = new System.Drawing.Size(35, 17);
+            this.lbl_tva.Size = new System.Drawing.Size(28, 13);
             this.lbl_tva.TabIndex = 41;
             this.lbl_tva.Text = "TVA";
             // 
             // cbx_tva
             // 
             this.cbx_tva.FormattingEnabled = true;
-            this.cbx_tva.Location = new System.Drawing.Point(533, 91);
-            this.cbx_tva.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_tva.Location = new System.Drawing.Point(400, 74);
+            this.cbx_tva.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_tva.Name = "cbx_tva";
-            this.cbx_tva.Size = new System.Drawing.Size(121, 24);
+            this.cbx_tva.Size = new System.Drawing.Size(92, 21);
             this.cbx_tva.TabIndex = 6;
             // 
             // btn_ajouteLigne
             // 
-            this.btn_ajouteLigne.Location = new System.Drawing.Point(795, 114);
-            this.btn_ajouteLigne.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_ajouteLigne.Location = new System.Drawing.Point(596, 93);
+            this.btn_ajouteLigne.Margin = new System.Windows.Forms.Padding(2);
             this.btn_ajouteLigne.Name = "btn_ajouteLigne";
-            this.btn_ajouteLigne.Size = new System.Drawing.Size(111, 47);
+            this.btn_ajouteLigne.Size = new System.Drawing.Size(83, 38);
             this.btn_ajouteLigne.TabIndex = 9;
             this.btn_ajouteLigne.Text = "Créer ligne";
             this.btn_ajouteLigne.UseVisualStyleBackColor = true;
@@ -351,10 +349,10 @@
             // 
             // btn_solRechercher
             // 
-            this.btn_solRechercher.Location = new System.Drawing.Point(195, 138);
-            this.btn_solRechercher.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_solRechercher.Location = new System.Drawing.Point(146, 112);
+            this.btn_solRechercher.Margin = new System.Windows.Forms.Padding(2);
             this.btn_solRechercher.Name = "btn_solRechercher";
-            this.btn_solRechercher.Size = new System.Drawing.Size(141, 23);
+            this.btn_solRechercher.Size = new System.Drawing.Size(106, 19);
             this.btn_solRechercher.TabIndex = 8;
             this.btn_solRechercher.Text = "Rechercher";
             this.btn_solRechercher.UseVisualStyleBackColor = true;
@@ -362,10 +360,10 @@
             // 
             // btn_solVider
             // 
-            this.btn_solVider.Location = new System.Drawing.Point(21, 138);
-            this.btn_solVider.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btn_solVider.Location = new System.Drawing.Point(16, 112);
+            this.btn_solVider.Margin = new System.Windows.Forms.Padding(2);
             this.btn_solVider.Name = "btn_solVider";
-            this.btn_solVider.Size = new System.Drawing.Size(136, 23);
+            this.btn_solVider.Size = new System.Drawing.Size(102, 19);
             this.btn_solVider.TabIndex = 7;
             this.btn_solVider.Text = "Vider les filtres";
             this.btn_solVider.UseVisualStyleBackColor = true;
@@ -374,71 +372,76 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(18, 71);
+            this.label7.Location = new System.Drawing.Point(14, 58);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(62, 17);
+            this.label7.Size = new System.Drawing.Size(47, 13);
             this.label7.TabIndex = 33;
             this.label7.Text = "Quantité";
             // 
             // tbx_quantite
             // 
-            this.tbx_quantite.Location = new System.Drawing.Point(22, 89);
-            this.tbx_quantite.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbx_quantite.Location = new System.Drawing.Point(16, 72);
+            this.tbx_quantite.Margin = new System.Windows.Forms.Padding(2);
             this.tbx_quantite.Name = "tbx_quantite";
-            this.tbx_quantite.Size = new System.Drawing.Size(77, 22);
+            this.tbx_quantite.Size = new System.Drawing.Size(59, 20);
             this.tbx_quantite.TabIndex = 4;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(132, 18);
+            this.label13.Location = new System.Drawing.Point(99, 15);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(62, 17);
+            this.label13.Size = new System.Drawing.Size(48, 13);
             this.label13.TabIndex = 28;
             this.label13.Text = "No. SOL";
             // 
             // tbx_noSol
             // 
-            this.tbx_noSol.Location = new System.Drawing.Point(133, 36);
-            this.tbx_noSol.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tbx_noSol.Location = new System.Drawing.Point(100, 29);
+            this.tbx_noSol.Margin = new System.Windows.Forms.Padding(2);
             this.tbx_noSol.Name = "tbx_noSol";
-            this.tbx_noSol.Size = new System.Drawing.Size(100, 22);
+            this.tbx_noSol.Size = new System.Drawing.Size(76, 20);
             this.tbx_noSol.TabIndex = 2;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(180, 71);
+            this.label10.Location = new System.Drawing.Point(135, 58);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 17);
+            this.label10.Size = new System.Drawing.Size(40, 13);
             this.label10.TabIndex = 23;
             this.label10.Text = "Produit";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(261, 16);
+            this.label11.Location = new System.Drawing.Point(196, 13);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(45, 17);
+            this.label11.Size = new System.Drawing.Size(35, 13);
             this.label11.TabIndex = 22;
             this.label11.Text = "Statut";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(19, 16);
+            this.label12.Location = new System.Drawing.Point(14, 13);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(107, 17);
+            this.label12.Size = new System.Drawing.Size(82, 13);
             this.label12.TabIndex = 18;
             this.label12.Text = "Réf. commande";
             // 
             // cbx_solStatut
             // 
             this.cbx_solStatut.FormattingEnabled = true;
-            this.cbx_solStatut.Location = new System.Drawing.Point(264, 34);
-            this.cbx_solStatut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.cbx_solStatut.Location = new System.Drawing.Point(198, 28);
+            this.cbx_solStatut.Margin = new System.Windows.Forms.Padding(2);
             this.cbx_solStatut.Name = "cbx_solStatut";
-            this.cbx_solStatut.Size = new System.Drawing.Size(121, 24);
+            this.cbx_solStatut.Size = new System.Drawing.Size(92, 21);
             this.cbx_solStatut.TabIndex = 3;
             // 
             // dgv_listeLignesCommande
@@ -446,37 +449,22 @@
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
             this.dgv_listeLignesCommande.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_listeLignesCommande.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgv_listeLignesCommande.Location = new System.Drawing.Point(7, 191);
-            this.dgv_listeLignesCommande.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.dgv_listeLignesCommande.Location = new System.Drawing.Point(5, 155);
+            this.dgv_listeLignesCommande.Margin = new System.Windows.Forms.Padding(2);
             this.dgv_listeLignesCommande.Name = "dgv_listeLignesCommande";
             this.dgv_listeLignesCommande.ReadOnly = true;
             this.dgv_listeLignesCommande.RowTemplate.Height = 24;
-            this.dgv_listeLignesCommande.Size = new System.Drawing.Size(919, 458);
+            this.dgv_listeLignesCommande.Size = new System.Drawing.Size(827, 624);
             this.dgv_listeLignesCommande.TabIndex = 14;
             this.dgv_listeLignesCommande.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgv_listeLignesCommande_CellMouseDoubleClick);
             // 
-            // raxonBindingSource1
-            // 
-            this.raxonBindingSource1.DataSource = this.raxon;
-            this.raxonBindingSource1.Position = 0;
-            // 
-            // raxon
-            // 
-            this.raxon.DataSetName = "raxon";
-            this.raxon.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // raxonBindingSource
-            // 
-            this.raxonBindingSource.DataSource = this.raxon;
-            this.raxonBindingSource.Position = 0;
-            // 
             // frm_Listes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 719);
+            this.ClientSize = new System.Drawing.Size(1069, 837);
             this.Controls.Add(this.tctrl_Listes);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_Listes";
             this.Text = "GSB Commande - Listes";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
@@ -487,9 +475,6 @@
             this.tpg_listeLignesCommande.ResumeLayout(false);
             this.tpg_listeLignesCommande.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_listeLignesCommande)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raxonBindingSource1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raxon)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.raxonBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -531,8 +516,6 @@
         private System.Windows.Forms.ComboBox cbx_Client;
         private System.Windows.Forms.ComboBox cbx_Produits;
         private System.Windows.Forms.TextBox tbx_solRefCommande;
-        private System.Windows.Forms.BindingSource raxonBindingSource;
-        private raxon raxon;
-        private System.Windows.Forms.BindingSource raxonBindingSource1;
+
     }
 }

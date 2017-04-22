@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Npgsql;
 
 namespace VMELE_E4
@@ -71,7 +68,7 @@ namespace VMELE_E4
                                     "ligne_de_commande.id_tva, id_produit," +
                                     "ligne_de_commande.id_etat FROM ligne_de_commande, commande " +
                                     "WHERE ligne_de_commande.id_commande = commande.id_commande " + l_ConditionsTexte +
-                                    "ORDER BY reference_commande, numero_ligne;";
+                                    " ORDER BY reference_commande, numero_ligne;";
                 using (NpgsqlDataReader reader = cmd.ExecuteReader())
                 {
                     while (reader.Read())
@@ -104,9 +101,15 @@ namespace VMELE_E4
                 cmd.Connection = c_Cnn;
 
                 // Retrieve all rows
-                cmd.CommandText = "insert into ligne_de_commande (id_sol, numero_ligne, quantite, id_commande, id_tva, id_produit, id_etat)"
-                     + "values (" + pLigne.getID() + "," + pLigne.NumeroLigne + ", " + pLigne.Quantite + ", " + pLigne.Commande.getID() + 
-                     ", " + pLigne.Tva.getID() + ", " + pLigne.Produit.getID() + ", " + pLigne.Etat.getID() +");";
+                cmd.CommandText = "insert into ligne_de_commande " +
+                    "(id_sol, numero_ligne, quantite, id_commande, id_tva, id_produit, id_etat)"
+                     + "values (" + pLigne.getID() + "," + 
+                     pLigne.NumeroLigne + ", " + 
+                     pLigne.Quantite + ", " + 
+                     pLigne.Commande.getID() + ", " + 
+                     pLigne.Tva.getID() + ", " + 
+                     pLigne.Produit.getID() + ", " + 
+                     pLigne.Etat.getID() +");";
                 int l_Nb = cmd.ExecuteNonQuery();
                 Program.Modele.ListeLignesCommandes.Add(pLigne.getID(), pLigne);
             }
@@ -123,8 +126,32 @@ namespace VMELE_E4
                     ", id_tva = " + pLigne.Tva.getID() + ", quantite = " + pLigne.Quantite +
                     " WHERE id_sol = " + pLigne.getID();
                 int l_Nb = cmd.ExecuteNonQuery();
-
             }
         }
+
+        public static void SupprLign(cls_LigneCommande pLigne)
+        {
+            using (NpgsqlCommand cmd = new NpgsqlCommand())
+            {
+                cmd.Connection = c_Cnn;
+
+                cmd.CommandText = "DELETE FROM ligne_de_commande WHERE id_sol=" + pLigne.getID();
+                int l_Nb = cmd.ExecuteNonQuery();
+            }
+        }
+
+        public static void ValiderLigne(cls_LigneCommande pLigne, cls_EtatSol pEtat)
+        {
+            using (NpgsqlCommand cmd = new NpgsqlCommand())
+            {
+                cmd.Connection = c_Cnn;
+
+                // Retrieve all rows
+                cmd.CommandText = "update ligne_de_commande set id_etat = " + pEtat.getID()
+                    + " WHERE id_sol = " + pLigne.getID();
+                int l_Nb = cmd.ExecuteNonQuery();
+            }
+        }
+
     }
 }
