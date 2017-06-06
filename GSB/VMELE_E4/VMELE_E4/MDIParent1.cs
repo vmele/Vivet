@@ -52,6 +52,8 @@ namespace VMELE_E4
         private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+            frm_Connexion l_FrmConnexion = new frm_Connexion();
+            l_FrmConnexion.Show();
         }
 
         private void CutToolStripMenuItem_Click(object sender, EventArgs e)
@@ -71,10 +73,6 @@ namespace VMELE_E4
             //toolStrip.Visible = toolBarToolStripMenuItem.Checked;
         }
 
-        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
-        }
 
         private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -117,6 +115,24 @@ namespace VMELE_E4
             frm_Listes l_listeCommande = new frm_Listes();
             l_listeCommande.MdiParent = this;
             l_listeCommande.Show();
+        }
+
+        private void commandeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_DetailCommande l_frmCommande = new frm_DetailCommande();
+            l_frmCommande.ShowDialog();
+        }
+
+        private void ligneDeCommandeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_DetailLignesCommande l_frmLigne = new frm_DetailLignesCommande();
+            l_frmLigne.ShowDialog();
+
+        }
+
+        private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
     }
 }

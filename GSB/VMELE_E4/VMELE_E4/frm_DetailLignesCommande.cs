@@ -282,30 +282,22 @@ namespace VMELE_E4
 
                 Program.Controlleur.validerLigneCommande(l_Ligne, l_NouvelEtatligne);
                 l_Ligne.Etat = l_NouvelEtatligne;
+                pgb_statut.Value++;
+                lbl_statut.Text = l_NouvelEtatligne.LibelleEtatSol;
 
-                bool l_BoolEtat = true;
-                // ALors on parcourt chaque lignes de la commande associée
-                // Et on test si chaque ligne a le même statut.
+                int l_IDLigneMin = 4;
                 foreach (cls_LigneCommande l_ligneCommande in l_Ligne.Commande.ListeLignesCommande)
                 {
-                    if (l_ligneCommande.Etat != l_Ligne.Etat)
+                    // On prend le plus bas ID Etat de les lignes de la commande et on affecte cet id à la commande.
+                    if (l_ligneCommande.Etat.getID() < l_IDLigneMin)
                     {
-                        l_BoolEtat = false;
+                        l_IDLigneMin = l_ligneCommande.Etat.getID();
                     }
 
                 }
-                // Si elles ont toutes le même statut : on valide la ligne de commande.
-                if (l_BoolEtat == true)
-                {
-                    // Si la cde n'est pas cloturée, on fait ETAT + 1
-                    if (l_Ligne.Commande.Etat.getID() < 4)
-                    {
-                        cls_EtatSo l_NouvelEtatCommande = Program.Modele.ListeEtatSo[l_Ligne.Commande.Etat.getID() + 1];
-
-                        l_Ligne.Commande.Etat = l_NouvelEtatCommande;
-                        Program.Controlleur.ValiderCommande(l_Ligne.Commande, l_NouvelEtatCommande);
-                    }
-                }
+                cls_EtatSo l_NouvelEtatCommande = Program.Modele.ListeEtatSo[l_IDLigneMin];
+                l_Ligne.Commande.Etat = l_NouvelEtatCommande;
+                Program.Controlleur.ValiderCommande(l_Ligne.Commande, l_NouvelEtatCommande);
             }
             else
             {

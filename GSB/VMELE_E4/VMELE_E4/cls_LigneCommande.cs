@@ -14,6 +14,7 @@ namespace VMELE_E4
         private cls_EtatSol c_Etat;
         private cls_Produit c_Produit;
         private cls_Tva c_Tva;
+        private int v;
 
         /// <summary>
         /// Constructeur des lignes de commande
@@ -39,6 +40,21 @@ namespace VMELE_E4
             c_Commande.AjouteLigne(this);
 
         }
+
+        public cls_LigneCommande(int pIDLigne, int pNumeroLigne, int pQuantite, 
+            cls_Commande pCommande, cls_EtatSol pEtat, cls_Produit pProduit, 
+            cls_Tva pTva, int v) : base(pIDLigne)
+        {
+            c_NumeroLigne = pNumeroLigne;
+            c_Quantite = pQuantite;
+            c_Commande = pCommande;
+            c_Etat = pEtat;
+            c_Produit = pProduit;
+            c_Tva = pTva;
+            c_Commande = pCommande;
+            this.v = v;
+        }
+
         public int idLigne()
         {
             return this.getID();

@@ -81,12 +81,15 @@ namespace VMELE_E4
                         int l_IDTva = reader.GetInt32(5);
                         int l_IDProduit = reader.GetInt32(6);
                         int l_IDEtat = reader.GetInt32(7);
+                        // On ajoute un int pour générer une surcharge pour éviter le AjouteLigneCommande dans Commande
+                        int l_LigneTampon = 0;
 
                         l_LigneCommande = new cls_LigneCommande(l_IDLigneCommande, l_NumeroLigne,
                             l_Quantite, Program.Modele.ListeCommandes[l_IDCommande],
                             Program.Modele.ListeEtatSol[l_IDEtat],
                             Program.Modele.ListeProduits[l_IDProduit],
-                            Program.Modele.ListeTva[l_IDTva]);
+                            Program.Modele.ListeTva[l_IDTva],
+                            l_LigneTampon = 1);
                         l_ListeLignesCommande.Add(l_IDLigneCommande, l_LigneCommande);
                     }
                 }

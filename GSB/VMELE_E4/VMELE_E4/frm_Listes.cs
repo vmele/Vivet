@@ -15,6 +15,7 @@ namespace VMELE_E4
         {
             InitializeComponent();
             setupListeCommande();
+            setupListeLignesCommande();
         }
 
         /// <summary>
@@ -66,13 +67,13 @@ namespace VMELE_E4
                 // onglet des commandes
                 case 0:
                     {
-                        setupListeCommande();
+                        setupDgvListeCommandes(Program.Modele.ListeCommandes);
                     }
                     break;
                 // onglet des lignes de commandes
                 case 1:
                     {
-                        setupListeLignesCommande();
+                        setupDgvListeLignesCommande(Program.Modele.ListeLignesCommandes);
                     }
                     break;
             }
@@ -159,8 +160,9 @@ namespace VMELE_E4
         /// Charge et rempli le DGV liste Commandes
         /// </summary>
         /// <param name="pDicoCommandes">Dictionnaire de commandes</param>
-        private void setupDgvListeCommandes(Dictionary<int, cls_Commande> pDicoCommandes)
+        public void setupDgvListeCommandes(Dictionary<int, cls_Commande> pDicoCommandes)
         {
+            
             DataTable table = new DataTable();
             table.Columns.Add("ID", typeof(int));
             table.Columns.Add("Réf. Commande", typeof(string));
@@ -217,7 +219,7 @@ namespace VMELE_E4
             if (cbx_Utilisateur.SelectedItem != null || cbx_Utilisateur.Text != "")
             {
                 cls_Utilisateur l_Utilisateur = (cls_Utilisateur)cbx_Utilisateur.SelectedItem;
-                l_Conditions.Add("id_utilisateur = " + l_Utilisateur.getID());
+                l_Conditions.Add("id_personne = " + l_Utilisateur.getID());
             }
             if (dtp_DateCommande.Text != " ")
             {
@@ -356,7 +358,7 @@ namespace VMELE_E4
 
         }
 
-        private void setupDgvListeLignesCommande(Dictionary<int, cls_LigneCommande> 
+        public void setupDgvListeLignesCommande(Dictionary<int, cls_LigneCommande> 
             pDicoLignesCommande)
         {
 

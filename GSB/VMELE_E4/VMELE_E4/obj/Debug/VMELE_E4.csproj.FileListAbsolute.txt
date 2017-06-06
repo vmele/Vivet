@@ -34,3 +34,5 @@ C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\ob
 C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.csproj.GenerateResource.Cache
 C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.exe
 C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\obj\Debug\VMELE_E4.pdb
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\itextsharp.dll
+C:\Users\User\Documents\Documents\Cours 2016_2017\Vivet\GSB\VMELE_E4\VMELE_E4\bin\Debug\itextsharp.xml

@@ -38,8 +38,6 @@
             this.cbx_typeCommande = new System.Windows.Forms.ComboBox();
             this.dgv_lignesCommande = new System.Windows.Forms.DataGridView();
             this.btn_enregistrerFermer = new System.Windows.Forms.Button();
-            this.btn_validerStatut = new System.Windows.Forms.Button();
-            this.btn_annulerCommande = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -152,24 +150,6 @@
             this.btn_enregistrerFermer.Text = "Enregistrer et fermer";
             this.btn_enregistrerFermer.UseVisualStyleBackColor = true;
             this.btn_enregistrerFermer.Click += new System.EventHandler(this.btn_enregistrerFermer_Click);
-            // 
-            // btn_validerStatut
-            // 
-            this.btn_validerStatut.Location = new System.Drawing.Point(470, 504);
-            this.btn_validerStatut.Name = "btn_validerStatut";
-            this.btn_validerStatut.Size = new System.Drawing.Size(75, 36);
-            this.btn_validerStatut.TabIndex = 13;
-            this.btn_validerStatut.Text = "Valider ";
-            this.btn_validerStatut.UseVisualStyleBackColor = true;
-            // 
-            // btn_annulerCommande
-            // 
-            this.btn_annulerCommande.Location = new System.Drawing.Point(96, 511);
-            this.btn_annulerCommande.Name = "btn_annulerCommande";
-            this.btn_annulerCommande.Size = new System.Drawing.Size(75, 23);
-            this.btn_annulerCommande.TabIndex = 14;
-            this.btn_annulerCommande.Text = "Annuler la commande";
-            this.btn_annulerCommande.UseVisualStyleBackColor = true;
             // 
             // label2
             // 
@@ -403,8 +383,6 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.btn_annulerCommande);
-            this.Controls.Add(this.btn_validerStatut);
             this.Controls.Add(this.btn_enregistrerFermer);
             this.Controls.Add(this.dgv_lignesCommande);
             this.Controls.Add(this.cbx_typeCommande);
@@ -438,8 +416,6 @@
         private System.Windows.Forms.ComboBox cbx_typeCommande;
         private System.Windows.Forms.DataGridView dgv_lignesCommande;
         private System.Windows.Forms.Button btn_enregistrerFermer;
-        private System.Windows.Forms.Button btn_validerStatut;
-        private System.Windows.Forms.Button btn_annulerCommande;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

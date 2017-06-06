@@ -285,10 +285,11 @@ namespace VMELE_E4
                     l_DateCommande, l_DateVoulue, l_Client, l_Contact, l_Etat,
                     l_Utilisateur, l_Type);
                 Program.Controlleur.ajoutCommande(l_Commande);
+
             }
+            // Modification d'une commande
             else
             {
-                // TODO : Voir pourquoi les cbx et tbx ne prennent pas la nouvelle valeur.
                 cls_Commande l_Commande = Program.Modele.ListeCommandes[c_IDCommande];
 
                 cls_TypeCommande l_TypeCommande = (cls_TypeCommande)cbx_typeCommande.SelectedItem;
@@ -309,8 +310,13 @@ namespace VMELE_E4
                 }
 
                 Program.Controlleur.modifCommande(l_Commande);
+
+                // Refresh du DGV des commandes suite à la modification
+
             }
 
+            frm_Listes l_frm = new frm_Listes();
+            l_frm.setupDgvListeCommandes(Program.Modele.ListeCommandes);
             Close();
         }
 
