@@ -47,6 +47,11 @@ namespace VMELE_E4
             DAL_Commande.ModifCommande(pCommande);
         }
 
+        public void supprCommande(cls_Commande pCommande)
+        {
+            DAL_Commande.SupprCommande(pCommande);
+        }
+
         public void ValiderCommande(cls_Commande pCommande, cls_EtatSo pEtat)
         {
             DAL_Commande.ValiderCommande(pCommande, pEtat);
@@ -60,6 +65,12 @@ namespace VMELE_E4
         public void modifLigneCommande(cls_LigneCommande pLigne)
         {
             DAL_LigneCommande.ModifLigne(pLigne);
+        }
+
+
+        public void supprLigneCommande(cls_LigneCommande pLigne)
+        {
+            DAL_LigneCommande.SupprLigne(pLigne);
         }
 
         public void validerLigneCommande(cls_LigneCommande pLigne, cls_EtatSol pEtat)

@@ -41,11 +41,6 @@ namespace VMELE_E4
         private void setupModifLigneCommande()
         {
 
-            tbx_montantTotal.ReadOnly = true;
-            tbx_noSol.ReadOnly = true;
-            tbx_conditionnement.ReadOnly = true;
-            tbx_prixConditionne.ReadOnly = true;
-            cbx_SolRefCde.Enabled = false;
 
             // -------
             // Remplissage cbx_RefCommande
@@ -90,6 +85,31 @@ namespace VMELE_E4
             #endregion
 
             cls_LigneCommande l_Ligne = Program.Modele.ListeLignesCommandes[c_IDLigneCommande];
+
+            tbx_montantTotal.ReadOnly = true;
+            tbx_noSol.ReadOnly = true;
+            tbx_conditionnement.ReadOnly = true;
+            tbx_prixConditionne.ReadOnly = true;
+            cbx_SolRefCde.Enabled = false;
+
+            if (l_Ligne.Etat.getID() == 1)
+            {
+
+            }
+            else
+            {
+                if (l_Ligne.Etat.getID() == 2)
+                {
+                    cbx_Produit.Enabled = false;
+                    cbx_tva.Enabled = false;
+                }
+                else
+                {
+                    tbx_quantite.ReadOnly = true;
+                    cbx_Produit.Enabled = false;
+                    cbx_tva.Enabled = false;
+                }
+            }
 
             pgb_statut.Value = l_Ligne.Etat.getID();
             lbl_statut.Text = l_Ligne.Etat.LibelleEtatSol;
@@ -305,6 +325,35 @@ namespace VMELE_E4
                     "Action impossible",
                     MessageBoxButtons.OK,
                     MessageBoxIcon.Information);
+            }
+        }
+
+        private void btn_Annuler_Click(object sender, EventArgs e)
+        {
+            cls_LigneCommande l_Ligne = Program.Modele.ListeLignesCommandes[c_IDLigneCommande];
+
+            if (c_Setup == "Modif")
+            {
+                if (frm_Connexion.Utilisateur.Droit.getID() >= 2)
+                {
+                    var result = MessageBox.Show("Voulez vous vraiment supprimmer cette ligne de commande ?", "Alerte",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    // Si l'opérateur clique sur Oui
+                    if (result == DialogResult.Yes)
+                    {
+                        Program.Controlleur.supprLigneCommande(l_Ligne);
+                        Program.Modele.ListeLignesCommandes.Remove(l_Ligne.getID());
+                        this.Close();
+
+                    }
+                }
+                // Si l'opérateur n'est pas responsable
+                else
+                {
+                    MessageBox.Show("Vous ne pouvez pas supprimer une ligne de commande, veuillez contacter un responsable.", "Erreur",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Outlook = Microsoft.Office.Interop.Outlook;
 
 namespace VMELE_E4
 {
@@ -133,6 +134,27 @@ namespace VMELE_E4
         private void quitterToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Windows.Forms.Application.Exit();
+        }
+
+        private void mailSupportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Microsoft.Office.Interop.Outlook.Application outlookApp = new Microsoft.Office.Interop.Outlook.Application();
+                Outlook.MailItem mailItem = (Outlook.MailItem)outlookApp
+                    .CreateItem(Outlook.OlItemType.olMailItem);
+                mailItem.Subject = Form.ActiveForm.Name;
+                mailItem.To = "valmele@hotmail.fr";
+                mailItem.Body = "";
+                mailItem.Subject = "";
+                mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
+                mailItem.Display(false);
+            }
+            catch (Exception eX)
+            {
+                throw new Exception("cDocument: Error occurred trying to Create an " +
+                    "Outlook Email" + Environment.NewLine + eX.Message);
+            }
         }
     }
 }

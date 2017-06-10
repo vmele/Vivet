@@ -46,8 +46,6 @@ namespace VMELE_E4
 
         private void setupModifCommande()
         {
-            tbx_refCommande.ReadOnly = true;
-            tbx_gestionnaireCommande.ReadOnly = true;
 
             // -------
             // Remplissage et autocomplétion tbx_client
@@ -95,6 +93,36 @@ namespace VMELE_E4
 
 
             cls_Commande l_Commande = Program.Modele.ListeCommandes[c_IDCommande];
+
+            btn_Annuler.Enabled = true;
+            tbx_refCommande.ReadOnly = true;
+            tbx_gestionnaireCommande.ReadOnly = true;
+
+            // Si la commande est en devis on peut tout modifier
+            if (l_Commande.Etat.getID() == 1)
+            {
+
+            }
+            else
+            {
+                // Si elle est en attente, on peut tout changer sauf le client
+                if (l_Commande.Etat.getID() == 2)
+                {
+                    tbx_client.ReadOnly = true;
+
+                }
+                // Sinon on peut plus y toucher.
+                else
+                {
+                    tbx_client.ReadOnly = true;
+                    cbx_moyenContact.Enabled = false;
+                    cbx_typeCommande.Enabled = false;
+                    dtp_dateCommande.Enabled = false;
+                    dtp_dateDemandee.Enabled = false;
+                }
+            }
+
+
 
             // -------
             // Remplissage datagridview
@@ -156,7 +184,7 @@ namespace VMELE_E4
                 l_ListeClient.Add(l_Client.ToString());
             }
             tbx_client.AutoCompleteCustomSource = l_ListeClient;
-           
+
             #endregion
 
             // -------
@@ -202,6 +230,7 @@ namespace VMELE_E4
             // Set GC à l'utilisateur connecté
             tbx_gestionnaireCommande.Text = frm_Connexion.Utilisateur.ToString();
 
+            btn_Annuler.Enabled = false;
             tbx_refCommande.ReadOnly = true;
             tbx_gestionnaireCommande.ReadOnly = true;
             lbl_StatutCommande.Text = "Devis";
@@ -337,6 +366,50 @@ namespace VMELE_E4
             {
                 throw new Exception("cDocument: Error occurred trying to Create an Outlook Email"
                                     + Environment.NewLine + eX.Message);
+            }
+        }
+
+        private void btn_Annuler_Click(object sender, EventArgs e)
+        {
+            cls_Commande l_Commande = Program.Modele.ListeCommandes[c_IDCommande];
+
+            if (c_Setup == "Modif")
+            {
+                if (frm_Connexion.Utilisateur.Droit.getID() >= 2)
+                {
+                    var result = MessageBox.Show("Voulez vous vraiment supprimmer cette commande ?", "Alerte",
+                         MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    // Si l'opérateur clique sur Oui
+                    if (result == DialogResult.Yes)
+                    {
+                        // Si la commande ne contient plus de lignes
+                        if (l_Commande.ListeLignesCommande.Any() == false)
+                        {
+                            Program.Controlleur.supprCommande(l_Commande);
+                            Program.Modele.ListeCommandes.Remove(l_Commande.getID());
+                            this.Close();
+                        }
+                        // Sinon message disant qu'il reste des lignes 
+                        else
+                        {
+                            MessageBox.Show("La commande contient encore des lignes. Veuillez les supprimer.", "Erreur",
+                                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                    }
+                    // S'il appui sur non, on ne fait rien
+                    else
+                    {
+
+                    }
+                }
+                // Si l'opérateur n'est pas responsable
+                else
+                {
+                    MessageBox.Show("Vous ne pouvez pas supprimer une commande, veuillez contacter un responsable.", "Erreur",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
     }

@@ -44,34 +44,7 @@ namespace VMELE_E4
             else
             {
                 MessageBox.Show("Le mot de passe saisi est invalide.", "Erreur",
-                     MessageBoxButtons.OK, MessageBoxIcon.Error);
-                tbx_pw.Text = "";
-                i++;
-                // Si l'utilisateur s'est trompé trois fois de mot de passe : envoi 
-                //mail au support.
-                if (i == 3)
-                { 
-                    try
-                    {
-                        //Outlook.Application outlookApp = new Outlook.Application();
-                        //Outlook.MailItem mailItem = (Outlook.MailItem)outlookApp
-                        //    .CreateItem(Outlook.OlItemType.olMailItem);
-                        //mailItem.Subject = Form.ActiveForm.Name;
-                        //mailItem.To = "contact@valentinmele.fr";
-                        //mailItem.Body = "Bonjour, \nJ'ai oublié mon mot de passe ;" +
-                        //    "pourriez-vous le réinitialiser après vérification ? \nMerci, " + 
-                        //    l_Utilisateur + ".";
-                        //mailItem.Subject = "Mot de passe perdu, demande de réinitialisation.";
-                        //mailItem.Importance = Outlook.OlImportance.olImportanceHigh;
-                        //mailItem.Display(false);
-                        //i = 0;
-                    }
-                    catch (Exception eX)
-                    {
-                        throw new Exception("cDocument: Error occurred trying to Create an " +
-                            "Outlook Email"  + Environment.NewLine + eX.Message);
-                    }
-                }
+                     MessageBoxButtons.OK, MessageBoxIcon.Error); 
             } 
         }
 

@@ -132,7 +132,7 @@ namespace VMELE_E4
             }
         }
 
-        public static void SupprLign(cls_LigneCommande pLigne)
+        public static void SupprLigne(cls_LigneCommande pLigne)
         {
             using (NpgsqlCommand cmd = new NpgsqlCommand())
             {
